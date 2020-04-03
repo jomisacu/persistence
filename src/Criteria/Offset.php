@@ -7,21 +7,37 @@
 
 namespace Jomisacu\Persistence\Criteria;
 
-class Offset {
-	
-	public $offset;
-	public $limit;
-	
-	public function __construct ($offset, $limit) {
-		
-		$this->offset = $offset;
-		$this->limit  = $limit;
-	}
-	
-	public static function createByPage ($page, $pageSize) {
-		
-		$offset = ($page - 1) * $pageSize;
-		
-		return new self($offset, $pageSize);
-	}
+final class Offset
+{
+    protected $offset;
+    protected $limit;
+    
+    public function __construct ($offset, $limit)
+    {
+        $this->offset = $offset;
+        $this->limit  = $limit;
+    }
+    
+    public static function createByPage ($page, $pageSize)
+    {
+        $offset = ($page - 1) * $pageSize;
+        
+        return new self($offset, $pageSize);
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getOffset ()
+    {
+        return $this->offset;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getLimit ()
+    {
+        return $this->limit;
+    }
 }

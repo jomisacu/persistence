@@ -8,11 +8,13 @@
 namespace Jomisacu\Persistence;
 
 
-interface RepositoryInterface {
-	
-	public function save (ItemInterface $item);
-	
-	public function remove (ItemInterface $item);
-	
-	public function search (array $wheres = [], $limit = null, $offset = 0, $orderByProperty = null, $orderByType = null);
+use Jomisacu\Persistence\Criteria\Criteria;
+
+interface RepositoryInterface
+{
+    public function save (ItemInterface $item);
+    
+    public function remove (ItemInterface $item);
+    
+    public function search (Criteria $criteria);
 }

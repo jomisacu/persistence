@@ -7,8 +7,16 @@
 
 namespace Jomisacu\Persistence\Criteria;
 
-class OrderBy {
-	
-	const ASC  = 'ASC';
-	const DESC = 'DESC';
+class OrderBy
+{
+    const ASC  = 'ASC';
+    const DESC = 'DESC';
+    protected $field;
+    protected $orientation;
+    
+    public function __construct ($field, $orientation = OrderBy::ASC)
+    {
+        $this->field       = $field;
+        $this->orientation = $orientation;
+    }
 }

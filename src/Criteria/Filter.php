@@ -7,24 +7,47 @@
 
 namespace Jomisacu\Persistence\Criteria;
 
-class Filter {
-	
-	const OPERATOR_EQUAL = '=';
-	const OPERATOR_GREATER_THAN = '>';
-	const OPERATOR_GREATER_THAN_OR_EQUAL = '>=';
-	const OPERATOR_LESS_THAN = '<';
-	const OPERATOR_LESS_THAN_OR_EQUAL = '<=';
-	const OPERATOR_LIKE = 'LIKE';
-	const OPERATOR_IN = 'IN';
-	
-	public $operator;
-	public $expression;
-	public $value;
-	
-	public function __construct ($expression, $operator, $value) {
-		
-		$this->operator   = $operator;
-		$this->expression = $expression;
-		$this->value      = $value;
-	}
+final class Filter
+{
+    const OPERATOR_EQUAL                 = '=';
+    const OPERATOR_GREATER_THAN          = '>';
+    const OPERATOR_GREATER_THAN_OR_EQUAL = '>=';
+    const OPERATOR_LESS_THAN             = '<';
+    const OPERATOR_LESS_THAN_OR_EQUAL    = '<=';
+    const OPERATOR_LIKE                  = 'LIKE';
+    const OPERATOR_IN                    = 'IN';
+    protected $operator;
+    protected $expression;
+    protected $value;
+    
+    public function __construct ($expression, $operator, $value)
+    {
+        $this->operator   = $operator;
+        $this->expression = $expression;
+        $this->value      = $value;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getOperator ()
+    {
+        return $this->operator;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getExpression ()
+    {
+        return $this->expression;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getValue ()
+    {
+        return $this->value;
+    }
 }

@@ -8,8 +8,9 @@
 namespace Jomisacu\Persistence;
 
 
-interface ItemInterface {
-	
-	public function getModifications ();
-	public function setRelation ($name, $default, LoadCallback &$callback);
+interface ItemInterface
+{
+    public function getModifications ();
+    
+    public function setRelation ($name, $default, LoadCallback &$callback);
 }
