@@ -19,4 +19,14 @@ class OrderBy
         $this->field       = $field;
         $this->orientation = $orientation;
     }
+    
+    public function getField ()
+    {
+        return $this->field;
+    }
+    
+    public function getOrientation ()
+    {
+        return $this->orientation;
+    }
 }
