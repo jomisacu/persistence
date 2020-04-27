@@ -12,6 +12,7 @@ final class Criteria
     protected $filters = [];
     protected $orderBy;
     protected $offset;
+    protected $options = [];
     
     public function __construct ()
     {
@@ -45,5 +46,22 @@ final class Criteria
     public function setOffset (Offset $offset)
     {
         $this->offset = $offset;
+    }
+    
+    /**
+     * @param string $option
+     *
+     * @return Criteria
+     */
+    public function setOption ($option)
+    {
+        $this->options[$option] = $option;
+        
+        return $this;
+    }
+    
+    public function hasOption ($option)
+    {
+        return array_key_exists($option, $this->options);
     }
 }
