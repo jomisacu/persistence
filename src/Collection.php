@@ -18,6 +18,17 @@ class Collection implements Iterator, Countable, ArrayAccess
     protected $_keys  = [];
     protected $_items = [];
     
+    public function add ($item, $key = null)
+    {
+        if ($key) {
+            $this->_items[ $key ] = $item;
+        } else {
+            $this->_items[] = $item;
+        }
+        
+        $this->_keys = array_keys($this->_items);
+    }
+    
     public function get ($key)
     {
         if (isset($this->_items[ $key ])) {
@@ -186,17 +197,6 @@ class Collection implements Iterator, Countable, ArrayAccess
     public function offsetSet ($offset, $value)
     {
         $this->add($value, $offset);
-    }
-    
-    public function add ($item, $key = null)
-    {
-        if ($key) {
-            $this->_items[ $key ] = $item;
-        } else {
-            $this->_items[] = $item;
-        }
-        
-        $this->_keys = array_keys($this->_items);
     }
     
     /**
